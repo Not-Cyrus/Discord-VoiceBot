@@ -20,9 +20,6 @@ func (b *Bot) Setup(token string) {
 	route.Add("summon", route.Summon)
 	route.Add("playfile", route.Playfile)
 	route.Add("play", route.PlayLink)
-	route.Add("loop", route.Loop)
-	//route.Add("resume", route.Resume)
-	//route.Add("pause", route.Pause)
 	route.Add("skip", route.Skip)
 	route.Add("leave", route.Leave)
 }
