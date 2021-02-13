@@ -4,5 +4,3 @@ This was made a bit ago, it's more of a proof of concept vs something that can b
 
 
 (don't forget to change "yourid" in commands/commands.go)
-
-also I think this is broken idk
