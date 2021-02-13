@@ -14,6 +14,8 @@ type Sound struct {
 	VC       *discordgo.VoiceConnection
 	BChannel chan bool
 	Playing  bool
+	//Paused   bool
+	Loop bool
 }
 
 func NewSound() *Sound {
@@ -82,6 +84,27 @@ func (S *Sound) Play(song string) {
 		}
 	}
 }
+
+func (cmd *Commands) Loop(s *discordgo.Session, m *discordgo.Message, ctx *Context) {
+	if S.VC != nil && S.Playing {
+		S.Loop = !S.Loop
+		s.ChannelMessageSend(m.ChannelID, "Loop Status: "+strconv.FormatBool(S.Loop))
+	}
+}
+
+/*func (cmd *Commands) Resume(s *discordgo.Session, m *discordgo.Message, ctx *Context) {
+	if S.VC != nil {
+		S.BChannel <- false
+		S.Paused = false
+	}
+}*/
+
+/*func (cmd *Commands) Pause(s *discordgo.Session, m *discordgo.Message, ctx *Context) {
+	if S.VC != nil && S.Playing {
+		S.BChannel <- true
+		S.Paused = true
+	}
+}*/
 
 func (cmd *Commands) Skip(s *discordgo.Session, m *discordgo.Message, ctx *Context) {
 	audio.Skip()

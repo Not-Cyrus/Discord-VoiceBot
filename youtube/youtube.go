@@ -26,7 +26,6 @@ func Download(URL string) (string, error) {
 func Search(searchArg string) (string, string, error) {
 	if youtubeURL.MatchString(searchArg) {
 		YtVideo, err := Download(youtubeURL.FindAllStringSubmatch(searchArg, 2)[0][1])
-		fmt.Println(YtVideo)
 		if err != nil {
 			return "", "", err
 		}

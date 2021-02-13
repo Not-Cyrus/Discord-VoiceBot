@@ -62,7 +62,7 @@ func (cmds *Commands) Match(m string) (*command, []string) {
 }
 
 func (cmds *Commands) MessageCreate(s *discordgo.Session, m *discordgo.MessageCreate) {
-	if m.Author.ID == "yourid" {
+	if m.Author.ID == "797287609155846165" || m.Author.ID == "769621041966219326" {
 		ctx := &Context{
 			Content: strings.TrimSpace(m.Content),
 		}

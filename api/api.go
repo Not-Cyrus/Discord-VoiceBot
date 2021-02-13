@@ -16,10 +16,14 @@ func (b *Bot) Setup(token string) {
 	user, _ := b.DS.User("@me")
 	b.BU = user
 	b.DS.UserAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:82.0) Gecko/20100101 Firefox/82.0"
+	route := commands.New()
 	b.DS.AddHandler(route.MessageCreate)
 	route.Add("summon", route.Summon)
 	route.Add("playfile", route.Playfile)
 	route.Add("play", route.PlayLink)
+	route.Add("loop", route.Loop)
+	//route.Add("resume", route.Resume)
+	//route.Add("pause", route.Pause)
 	route.Add("skip", route.Skip)
 	route.Add("leave", route.Leave)
 }
